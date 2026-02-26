@@ -5,3 +5,10 @@
 
 # env files (can opt-in for committing if needed)
 **/.env*
+
+# Python
+
+**/venv
+**/env
+**/__pycache__
+**/__pycache__/**

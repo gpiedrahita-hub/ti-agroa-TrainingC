@@ -1,0 +1,67 @@
+# ENV
+.env
+.env.production
+.env.development
+
+# IDE
+.idea
+.vscode
+
+# Python
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.manifest
+*.spec
+
+# IDE and editor folders
+.vscode/
+.idea/
+.ruff_cache/
+
+# Test and coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+*,cover
+
+# Specific OS temporary files
+.DS_Store # macOS
+Thumbs.db # Windows
+
+# Log files and databases
+*.log
+pip-log.txt
+pip-delete-this-directory.txt
+db.sqlite3
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+
+
