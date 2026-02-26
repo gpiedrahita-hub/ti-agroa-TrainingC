@@ -1,0 +1,10 @@
+{
+    "home": {
+        "title": "Hello World!"
+    },
+    "navbar": {
+        "login": "Login",
+        "register": "Sign Up",
+        "title": "Infinite Herbs"
+    }
+}
