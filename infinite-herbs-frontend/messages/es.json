@@ -6,5 +6,68 @@
         "login": "Iniciar Sesión",
         "register": "Registrarse",
         "title": "Infinite Herbs"
+    },
+    "login": {
+        "title": "Infinite Herbs",
+        "description": "Ingresa tus credenciales para continuar",
+        "link": {
+            "home": "Inicio"
+        },
+        "button": {
+            "login": "Iniciar Sesión",
+            "loading": "Iniciando sesión..."
+        },
+        "label": {
+            "user": "Usuario",
+            "password": "Contraseña"
+        },
+        "placeholder": {
+            "user": "usuario"
+        },
+        "error": {
+            "messages": {
+                "username": "Usuario debe tener al menos 3 caracteres",
+                "password": "Contraseña debe tener al menos 6 caracteres"
+            },
+            "login": "Error al iniciar sesión"
+        }
+    },
+    "register": {
+        "title": "Crear Cuenta",
+        "description": "Regístrate para comenzar a usar Manage App",
+        "label": {
+            "firstName": "Nombre",
+            "lastName": "Apellido",
+            "email": "Correo Electrónico",
+            "username": "Usuario",
+            "password": "Contraseña",
+            "confirmPassword": "Confirmar Contraseña"
+        },
+        "placeholder": {
+            "firstName": "Juan",
+            "lastName": "Pérez",
+            "email": "juan@ejemplo.com",
+            "username": "juanperez"
+        },
+        "error": {
+            "messages": {
+                "firstName": "El nombre debe tener al menos 2 caracteres",
+                "lastName": "El apellido debe tener al menos 2 caracteres",
+                "email": "Ingresa un correo electrónico válido",
+                "username": "El usuario debe tener al menos 3 caracteres",
+                "password": "La contraseña debe tener al menos 6 caracteres",
+                "confirmPassword": "La confirmación debe tener al menos 6 caracteres",
+                "passwordMatch": "Las contraseñas no coinciden"
+            },
+            "register": "Error al crear la cuenta. Intenta de nuevo."
+        },
+        "button": {
+            "register": "Crear Cuenta",
+            "loading": "Creando cuenta..."
+        },
+        "link": {
+            "login": "¿Ya tienes cuenta? Inicia sesión",
+            "home": "Volver al inicio"
+        }
     }
 }

@@ -6,5 +6,68 @@
         "login": "Login",
         "register": "Sign Up",
         "title": "Infinite Herbs"
+    },
+    "login": {
+        "title": "Infinite Herbs",
+        "description": "Enter your credentials to continue",
+        "link": {
+            "home": "Home"
+        },
+        "button": {
+            "login": "Login",
+            "loading": "Logging in..."
+        },
+        "label": {
+            "user": "User",
+            "password": "Password"
+        },
+        "placeholder": {
+            "user": "user"
+        },
+        "error": {
+            "messages": {
+                "username": "Username must have at least 3 characters",
+                "password": "Password must be at least 6 characters long"
+            },
+            "login": "Login error"
+        }
+    },
+    "register": {
+        "title": "Create Account",
+        "description": "Sign up to start using Manage App",
+        "label": {
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email",
+            "username": "Username",
+            "password": "Password",
+            "confirmPassword": "Confirm Password"
+        },
+        "placeholder": {
+            "firstName": "John",
+            "lastName": "Doe",
+            "email": "john@example.com",
+            "username": "johndoe"
+        },
+        "error": {
+            "messages": {
+                "firstName": "First name must be at least 2 characters",
+                "lastName": "Last name must be at least 2 characters",
+                "email": "Enter a valid email",
+                "username": "Username must be at least 3 characters",
+                "password": "Password must be at least 6 characters",
+                "confirmPassword": "Confirmation must be at least 6 characters",
+                "passwordMatch": "Passwords do not match"
+            },
+            "register": "Error creating account. Please try again."
+        },
+        "button": {
+            "register": "Create Account",
+            "loading": "Creating account..."
+        },
+        "link": {
+            "login": "Already have an account? Login",
+            "home": "Back to home"
+        }
     }
 }
