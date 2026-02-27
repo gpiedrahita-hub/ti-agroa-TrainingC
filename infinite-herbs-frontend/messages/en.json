@@ -109,5 +109,41 @@
             "home": "Home",
             "users": "Users"
         }
+    },
+    "dashboard": {
+        "welcome": "Welcome",
+        "subtitle": "Here's your daily overview",
+        "stats": {
+            "revenue": "Total Revenue",
+            "users": "Active Users",
+            "orders": "Orders",
+            "products": "Products",
+            "fromLastMonth": "from last month",
+            "newThisMonth": "new this month",
+            "newProducts": "new products"
+        },
+        "recentActivity": "Recent Activity",
+        "recentActivityDesc": "Latest updates from your system",
+        "quickActions": "Quick Actions",
+        "quickActionsDesc": "Access most used features",
+        "actions": {
+            "manageProducts": "Manage Products",
+            "manageUsers": "Manage Users",
+            "viewOrders": "View Orders",
+            "addProduct": "Add New Product"
+        },
+        "topProducts": "Top Selling Products",
+        "inventory": "Inventory",
+        "inStock": "In stock",
+        "lowStock": "Low stock",
+        "outOfStock": "Out of stock",
+        "performance": "Performance",
+        "sales": "Sales",
+        "satisfaction": "Satisfaction",
+        "delivery": "On-time delivery"
+    },
+    "legend": {
+        "loading": "Loading...",
+        "role": "Role"
     }
 }

@@ -109,5 +109,41 @@
             "home": "Inicio",
             "users": "Usuarios"
         }
+    },
+    "dashboard": {
+        "welcome": "Bienvenido",
+        "subtitle": "Aquí está tu resumen del día",
+        "stats": {
+            "revenue": "Ingresos Totales",
+            "users": "Usuarios Activos",
+            "orders": "Pedidos",
+            "products": "Productos",
+            "fromLastMonth": "del mes pasado",
+            "newThisMonth": "nuevos este mes",
+            "newProducts": "productos nuevos"
+        },
+        "recentActivity": "Actividad Reciente",
+        "recentActivityDesc": "Últimas actualizaciones de tu sistema",
+        "quickActions": "Acciones Rápidas",
+        "quickActionsDesc": "Accede a las funciones más utilizadas",
+        "actions": {
+            "manageProducts": "Gestionar Productos",
+            "manageUsers": "Gestionar Usuarios",
+            "viewOrders": "Ver Pedidos",
+            "addProduct": "Agregar Nuevo Producto"
+        },
+        "topProducts": "Productos Más Vendidos",
+        "inventory": "Inventario",
+        "inStock": "En stock",
+        "lowStock": "Stock bajo",
+        "outOfStock": "Sin stock",
+        "performance": "Rendimiento",
+        "sales": "Ventas",
+        "satisfaction": "Satisfacción",
+        "delivery": "Entregas a tiempo"
+    },
+    "legend": {
+        "loading": "Cargando...",
+        "role": "Rol"
     }
 }
