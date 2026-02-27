@@ -26,7 +26,6 @@ export const authService = {
             Cookies.remove('accessToken');
             Cookies.remove('refreshToken');
             localStorage.removeItem('user');
-            window.location.href = '/login';
         }
     },
 

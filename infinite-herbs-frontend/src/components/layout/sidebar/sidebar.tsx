@@ -10,12 +10,14 @@ import type { Role } from '@/types/role';
 import NavLink from '@/components/nav/navlink';
 import { Button } from '@/components/ui/button';
 import { X, LogOut } from 'lucide-react';
+import {useRouter} from '@/i18n/navigation';
 
 export default function Sidebar() {
   const t = useTranslations('sidebar');
   const { isOpen, toggle, close } = useSidebar();
   const pathname = usePathname();
   const [role, setRole] = useState<Role>('user');
+  const router = useRouter();
 
   useEffect(() => {
     const user = authService.getCurrentUser();
@@ -43,6 +45,7 @@ export default function Sidebar() {
 
   async function handleLogout() {
     await authService.logout?.();
+    router.replace('/login')
   }
 
   const renderNav = (onNavigate?: () => void) => (
