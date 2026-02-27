@@ -34,7 +34,8 @@ class UserService:
             hashedPassword=hashed_password,
             firstName=user.firstName,
             lastName=user.lastName,
-            role=user.role
+            role=user.role,
+            isActive = user.isActive
         )
         db.add(db_user)
         db.commit()

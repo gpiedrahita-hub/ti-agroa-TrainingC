@@ -16,6 +16,7 @@ class UserBase(BaseModel):
 # Crear Usuario
 class UserCreate(UserBase):
     password: str = Field(..., min_length=6, max_length=100)
+    isActive: Optional[bool] = None
 
 
 # Actualizar Usuario
