@@ -339,7 +339,7 @@ export default function UsersPage() {
                         <AlertDialogTitle>{t('deleteDialog.title')}</AlertDialogTitle>
                         <AlertDialogDescription>
                             {t('deleteDialog.description')}
-                            <strong>{userToDelete?.firstName} {userToDelete?.lastName}</strong>?
+                            <strong> {userToDelete?.firstName} {userToDelete?.lastName}</strong>?
                         </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>

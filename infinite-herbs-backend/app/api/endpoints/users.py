@@ -33,7 +33,7 @@ def get_user(user_id: str, db: Session = Depends(get_db)):
 def create_user(user: UserCreate, db: Session = Depends(get_db)):
     """Crear nuevo usuario"""
     # Verificar si username ya existe
-    existing_user = UserService.get_user_by_username(db, user.username)
+    existing_user = UserService.get_user_by_username(db, user.userName)
     if existing_user:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
