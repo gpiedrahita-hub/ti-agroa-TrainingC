@@ -1,4 +1,5 @@
 import Navbar from "@/components/layout/navbar/navbar";
+import { SidebarProvider } from "@/components/providers/sidebar-provider";
 import { NextIntlClientProvider } from "next-intl";
 
 export default async function LocaleLayout({
@@ -8,8 +9,10 @@ export default async function LocaleLayout({
 }>) {
     return (
         <NextIntlClientProvider>
-            <Navbar/>
-            {children}
+            <SidebarProvider>
+                <Navbar/>
+                {children}
+            </SidebarProvider>
         </NextIntlClientProvider>
     );
 }
