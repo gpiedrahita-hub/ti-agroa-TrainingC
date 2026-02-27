@@ -98,5 +98,12 @@
             "subtitle": "Únete a Manage App hoy y transforma tu gestión",
             "button": "Crear Cuenta Gratis"
         }
+    },
+    "sidebar": {
+        "title": "Infinite Herbs",
+        "logout": "Cerrar Sesión",
+        "navigation": "Opciones",
+        "close": "Cerrar",
+        "menu": "Menú"
     }
 }
