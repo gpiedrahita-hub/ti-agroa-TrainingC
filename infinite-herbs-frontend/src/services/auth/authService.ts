@@ -7,11 +7,13 @@ export const authService = {
         const {data} = await apiClient.post<LoginResponse>('/auth/login', credentials);
 
         if (typeof window !== 'undefined') {
-            Cookies.set('accessToken', data.accessToken);
-            if (data.refreshToken){
-                Cookies.set('refreshToken', data.refreshToken);
+            if(data.user){
+                Cookies.set('accessToken', data.accessToken);
+                if (data.refreshToken){
+                    Cookies.set('refreshToken', data.refreshToken);
+                }
+                localStorage.setItem('user', JSON.stringify(data.user));
             }
-            localStorage.setItem('user', JSON.stringify(data.user));
         }
 
         return data;
