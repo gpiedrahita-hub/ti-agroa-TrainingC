@@ -2,6 +2,7 @@
 
 import { useSidebar } from '@/components/providers/sidebar-provider';
 import { LanguageToggle } from '@/components/toggles/language-toggle';
+import { ThemeToggle } from '@/components/toggles/theme-toggle';
 import { useEffect, useState } from 'react';
 import { Link } from '@/i18n/navigation';
 import { usePathname, useRouter } from '@/i18n/navigation';
@@ -74,6 +75,7 @@ export default function Navbar() {
                     <div className="hidden md:flex md:items-center md:gap-2">
                         {isAuthenticated && (
                             <>
+                                <ThemeToggle />
                                 <LanguageToggle />
                                 {user && (
                                     <div
@@ -116,6 +118,7 @@ export default function Navbar() {
                             <>
                                 {isLoginPage && (
                                     <>
+                                        <ThemeToggle />
                                         <LanguageToggle />
                                         <Button
                                             onClick={() => router.push('/register')}
@@ -129,12 +132,14 @@ export default function Navbar() {
 
                                 {isRegisterPage && (
                                     <>
+                                        <ThemeToggle />
                                         <LanguageToggle />
                                     </>
                                 )}
 
                                 {!isAuthPage && (
                                     <>
+                                        <ThemeToggle />
                                         <LanguageToggle />
                                         <Button
                                             onClick={() => router.push('/login')}
@@ -157,6 +162,7 @@ export default function Navbar() {
                     </div>
 
                     <div className="ml-auto flex items-center gap-2 md:hidden">
+                        <ThemeToggle />
                         <LanguageToggle />
                         <Button
                             variant="ghost"
