@@ -108,6 +108,20 @@ export default function Navbar() {
                                         </div>
                                     </div>
                                 )}
+                                {/* <div className="mt-auto border-t border-border p-3">
+                                    <Button
+                                    type="button"
+                                    variant="ghost"
+                                    onClick={async () => {
+                                        onNavigate?.();
+                                        await handleLogout();
+                                    }}
+                                    className="w-full justify-center gap-2 rounded-xl px-3 py-2.5 bg-slate-500/10 hover:text-rose-600"
+                                    >
+                                    <LogOut className="h-4 w-4" />
+                                    <span>{t('logout')}</span>
+                                    </Button>
+                                </div> */}
                             </>
                         )}
 

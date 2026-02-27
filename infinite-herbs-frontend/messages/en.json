@@ -3,6 +3,10 @@
         "title": "Hello World!"
     },
     "navbar": {
+        "home": "Home",
+        "features": "Features",
+        "about": "About",
+        "contact": "Contact",
         "login": "Login",
         "register": "Sign Up",
         "title": "Infinite Herbs"
@@ -68,6 +72,31 @@
         "link": {
             "login": "Already have an account? Login",
             "home": "Back to home"
+        }
+    },
+    "landing": {
+        "hero": {
+            "title": "Manage your users",
+            "subtitle": "Comprehensive system for crop control and management",
+            "cta_primary": "Get Started",
+            "cta_secondary": "Learn More"
+        },
+        "features": {
+            "title": "Key Features",
+            "subtitle": "Everything you need to manage your production",
+            "feature1_title": "User Management",
+            "feature1_desc": "Complete control of user roles and permissions",
+            "feature2_title": "Real-Time Dashboard",
+            "feature2_desc": "View important metrics instantly",
+            "feature3_title": "Advanced Reports",
+            "feature3_desc": "Generate detailed production reports",
+            "feature4_title": "Security Guaranteed",
+            "feature4_desc": "JWT authentication and data encryption"
+        },
+        "cta": {
+            "title": "Ready to get started?",
+            "subtitle": "Join Manage App today and transform your management",
+            "button": "Create Free Account"
         }
     }
 }

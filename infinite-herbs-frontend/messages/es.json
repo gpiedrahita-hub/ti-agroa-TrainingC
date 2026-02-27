@@ -3,6 +3,10 @@
         "title": "Hola Mundo!"
     },
     "navbar": {
+        "home": "Inicio",
+        "features": "Características",
+        "about": "Nosotros",
+        "contact": "Contacto",
         "login": "Iniciar Sesión",
         "register": "Registrarse",
         "title": "Infinite Herbs"
@@ -68,6 +72,31 @@
         "link": {
             "login": "¿Ya tienes cuenta? Inicia sesión",
             "home": "Volver al inicio"
+        }
+    },
+    "landing": {
+        "hero": {
+            "title": "Gestiona tus Usuarios",
+            "subtitle": "Sistema integral para el control y administración",
+            "cta_primary": "Comenzar Ahora",
+            "cta_secondary": "Saber Más"
+        },
+        "features": {
+            "title": "Características Principales",
+            "subtitle": "Todo lo que necesitas para gestionar tu producción",
+            "feature1_title": "Gestión de Usuarios",
+            "feature1_desc": "Control completo de roles y permisos de usuarios",
+            "feature2_title": "Dashboard en Tiempo Real",
+            "feature2_desc": "Visualiza métricas importantes al instante",
+            "feature3_title": "Reportes Avanzados",
+            "feature3_desc": "Genera reportes detallados de producción",
+            "feature4_title": "Seguridad Garantizada",
+            "feature4_desc": "Autenticación JWT y encriptación de datos"
+        },
+        "cta": {
+            "title": "¿Listo para comenzar?",
+            "subtitle": "Únete a Manage App hoy y transforma tu gestión",
+            "button": "Crear Cuenta Gratis"
         }
     }
 }
