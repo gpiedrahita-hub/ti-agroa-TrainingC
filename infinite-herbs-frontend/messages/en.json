@@ -145,5 +145,76 @@
     "legend": {
         "loading": "Loading...",
         "role": "Role"
+    },
+    "users": {
+        "title": "User Management",
+        "subtitle": "Manage your platform users",
+        "newUser": "New User",
+        "loading": "Loading users...",
+        "stats": {
+            "total": "Total Users",
+            "totalDesc": "Registered users",
+            "active": "Active Users",
+            "activeDesc": "Users with access",
+            "inactive": "Inactive Users",
+            "inactiveDesc": "Currently without access"
+        },
+        "userList": "User List",
+        "userListDesc": "Manage and view all users",
+        "search": "Search users...",
+        "noResults": "No users found",
+        "table": {
+            "user": "User",
+            "contact": "Contact",
+            "role": "Role",
+            "status": "Status",
+            "actions": "Actions"
+        },
+        "active": "Active",
+        "inactive": "Inactive",
+        "actions": "Actions",
+        "edit": "Edit",
+        "delete": "Delete",
+        "deleteDialog": {
+            "title": "Delete user?",
+            "description": "This action cannot be undone. This will permanently delete the user",
+            "cancel": "Cancel",
+            "confirm": "Delete"
+        },
+        "form": {
+            "createTitle": "Create New User",
+            "createDescription": "Fill in the information to create a new user",
+            "editTitle": "Edit User",
+            "editDescription": "Modify user information",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "username": "Username",
+            "usernameDesc": "Unique name for login",
+            "email": "Email",
+            "password": "Password",
+            "passwordOptional": "(optional)",
+            "passwordPlaceholder": "Leave empty to keep current",
+            "passwordDesc": "Only fill in if you want to change the password",
+            "role": "Role",
+            "selectRole": "Select role",
+            "roleUser": "User",
+            "roleViewer": "Viewer",
+            "roleAdmin": "Administrator",
+            "active": "Active User",
+            "activeDesc": "User can access the system",
+            "cancel": "Cancel",
+            "create": "Create User",
+            "update": "Update User",
+            "error": {
+                "messages": {
+                    "firstName": "First name must be at least 2 characters",
+                    "lastName": "Last name must be at least 2 characters",
+                    "email": "Enter a valid email address",
+                    "username": "Username must be at least 3 characters",
+                    "password": "Password must be at least 6 characters"
+                },
+                "saved": "Error saving username. Please try again."
+            }
+        }
     }
 }

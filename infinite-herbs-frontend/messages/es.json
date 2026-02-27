@@ -145,5 +145,76 @@
     "legend": {
         "loading": "Cargando...",
         "role": "Rol"
+    },
+    "users": {
+        "title": "Gestión de Usuarios",
+        "subtitle": "Administra los usuarios de tu plataforma",
+        "newUser": "Nuevo Usuario",
+        "loading": "Cargando usuarios...",
+        "stats": {
+            "total": "Total Usuarios",
+            "totalDesc": "Usuarios registrados",
+            "active": "Usuarios Activos",
+            "activeDesc": "Usuarios con acceso",
+            "inactive": "Usuarios Inactivos",
+            "inactiveDesc": "Sin acceso actualmente"
+        },
+        "userList": "Lista de Usuarios",
+        "userListDesc": "Gestiona y visualiza todos los usuarios",
+        "search": "Buscar usuarios...",
+        "noResults": "No se encontraron usuarios",
+        "table": {
+            "user": "Usuario",
+            "contact": "Contacto",
+            "role": "Rol",
+            "status": "Estado",
+            "actions": "Acciones"
+        },
+        "active": "Activo",
+        "inactive": "Inactivo",
+        "actions": "Acciones",
+        "edit": "Editar",
+        "delete": "Eliminar",
+        "deleteDialog": {
+            "title": "¿Eliminar usuario?",
+            "description": "Esta acción no se puede deshacer. Se eliminará permanentemente el usuario",
+            "cancel": "Cancelar",
+            "confirm": "Eliminar"
+        },
+        "form": {
+            "createTitle": "Crear Nuevo Usuario",
+            "createDescription": "Completa la información para crear un nuevo usuario",
+            "editTitle": "Editar Usuario",
+            "editDescription": "Modifica la información del usuario",
+            "firstName": "Nombre",
+            "lastName": "Apellido",
+            "username": "Usuario",
+            "usernameDesc": "Nombre único para iniciar sesión",
+            "email": "Correo Electrónico",
+            "password": "Contraseña",
+            "passwordOptional": "(opcional)",
+            "passwordPlaceholder": "Dejar vacío para mantener la actual",
+            "passwordDesc": "Solo completa si deseas cambiar la contraseña",
+            "role": "Rol",
+            "selectRole": "Seleccionar rol",
+            "roleUser": "Usuario",
+            "roleViewer": "Moderador",
+            "roleAdmin": "Administrador",
+            "active": "Usuario Activo",
+            "activeDesc": "El usuario puede acceder al sistema",
+            "cancel": "Cancelar",
+            "create": "Crear Usuario",
+            "update": "Actualizar Usuario",
+            "error": {
+                "messages": {
+                    "firstName": "El nombre debe tener al menos 2 caracteres",
+                    "lastName": "El apellido debe tener al menos 2 caracteres",
+                    "email": "Ingresa un correo electrónico válido",
+                    "username": "El usuario debe tener al menos 3 caracteres",
+                    "password": "La contraseña debe tener al menos 6 caracteres"
+                },
+                "saved": "Error al guardar el usuario. Intenta de nuevo."
+            }
+        }
     }
 }
