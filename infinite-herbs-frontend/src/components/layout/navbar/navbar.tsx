@@ -1,7 +1,8 @@
 'use client';
 
+import { useSidebar } from '@/components/providers/sidebar-provider';
 import { LanguageToggle } from '@/components/toggles/language-toggle';
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from '@/i18n/navigation';
 import { usePathname, useRouter } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
@@ -14,7 +15,7 @@ export default function Navbar() {
     const t = useTranslations('navbar');
     const pathname = usePathname();
     const router = useRouter();
-    const [isOpen, setIsOpen] = useState(false);
+    const { isOpen, setIsOpen } = useSidebar();
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState<User | null>(null);
     const [mounted, setMounted] = useState(false);

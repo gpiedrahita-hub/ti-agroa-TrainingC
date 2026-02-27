@@ -104,6 +104,10 @@
         "logout": "Logout",
         "navigation": "Options",
         "close": "Close",
-        "menu": "Menu"
+        "menu": "Menu",
+        "labels": {
+            "home": "Home",
+            "users": "Users"
+        }
     }
 }
