@@ -7,12 +7,11 @@ export const authService = {
         const {data} = await apiClient.post<LoginResponse>('/auth/login', credentials);
 
         if (typeof window !== 'undefined') {
-            if(data.user){
-                Cookies.set('accessToken', data.accessToken);
-                if (data.refreshToken){
-                    Cookies.set('refreshToken', data.refreshToken);
-                }
-                localStorage.setItem('user', JSON.stringify(data.user));
+            if (data.accessToken) {
+                Cookies.set('accessToken' , data.accessToken);
+            }
+            if (data.refreshToken) {
+                Cookies.set('refreshToken' , data.refreshToken);
             }
         }
 
@@ -27,7 +26,7 @@ export const authService = {
         if (typeof window !== 'undefined') {
             Cookies.remove('accessToken');
             Cookies.remove('refreshToken');
-            localStorage.removeItem('user');
+            // localStorage.removeItem('user');
         }
     },
 
