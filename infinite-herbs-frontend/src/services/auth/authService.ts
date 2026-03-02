@@ -23,7 +23,7 @@ export const authService = {
         await apiClient.post<{ msg:string }>('/auth/register', body);
     },
 
-    logout(): void {
+        logout(): void {
         if (typeof window !== 'undefined') {
             Cookies.remove('accessToken');
             Cookies.remove('refreshToken');
@@ -51,6 +51,6 @@ export const authService = {
         if (!currentUser?.role) return false;
 
         const roles = Array.isArray(allowedRoles) ? allowedRoles : [allowedRoles];
-        return roles.includes(currentUser.role);
+        return roles.includes(currentUser.role.name);
     },
 };

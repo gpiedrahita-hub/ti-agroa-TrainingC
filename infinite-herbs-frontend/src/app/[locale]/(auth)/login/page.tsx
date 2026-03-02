@@ -12,10 +12,12 @@ import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/compo
 import {authService} from '@/services/auth/authService';
 import {Link} from '@/i18n/navigation';
 import {useTranslations} from "next-intl";
+import { useAuth } from '@/components/providers/auth-provider';
 
 export default function LoginPage() {
     const t = useTranslations('login');
     const router = useRouter();
+    const {refresh} = useAuth();
     const [error, setError] = useState<string | null>(null);
 
     const loginSchema = useMemo(() => z.object({
@@ -36,6 +38,7 @@ export default function LoginPage() {
         setError(null);
         try {
             await authService.login(data);
+            await refresh()
             router.replace('/dashboard');
         } catch (err: any) {
             setError(err?.response?.data?.message || t('error.login'));

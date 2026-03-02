@@ -8,27 +8,21 @@ import { Link } from '@/i18n/navigation';
 import { usePathname, useRouter } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
 import { Leaf, Menu, X } from 'lucide-react';
-import { authService } from '@/services/auth/authService';
 import { useTranslations } from 'next-intl';
-import { User } from "@/types/user";
+import { useAuth } from '@/components/providers/auth-provider';
 
 export default function Navbar() {
     const t = useTranslations('navbar');
     const pathname = usePathname();
     const router = useRouter();
     const { isOpen, setIsOpen } = useSidebar();
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [user, setUser] = useState<User | null>(null);
     const [mounted, setMounted] = useState(false);
-
+    const { user, authenticated } = useAuth();
     const isAuthPage = pathname?.includes('/login') || pathname?.includes('/register');
     const isLoginPage = pathname?.includes('/login');
     const isRegisterPage = pathname?.includes('/register');
 
     useEffect(() => {
-        setIsAuthenticated(authService.isAuthenticated());
-        const currentUser = authService.getCurrentUser();
-        setUser(currentUser);
         setMounted(true);
     }, [pathname]);
 
@@ -48,7 +42,7 @@ export default function Navbar() {
                         <span className="text-xl font-bold">{t('title')}</span>
                     </Link>
                     <div className="hidden md:flex md:flex-1 md:items-center md:justify-center md:gap-6">
-                        {!isAuthPage && !isAuthenticated && (
+                        {!isAuthPage && !authenticated && (
                             <>
                                 <Link
                                     href="#features"
@@ -73,7 +67,7 @@ export default function Navbar() {
                     </div>
 
                     <div className="hidden md:flex md:items-center md:gap-2">
-                        {isAuthenticated && (
+                        {authenticated && (
                             <>
                                 <ThemeToggle />
                                 <LanguageToggle />
@@ -104,7 +98,7 @@ export default function Navbar() {
                                                 <div className="mt-1 flex items-center gap-1">
                                                     <div className="h-1.5 w-1.5 rounded-full bg-green-400" />
                                                     <p className="text-xs font-medium text-muted-foreground">
-                                                        {user.role}
+                                                        {user.role.name}
                                                     </p>
                                                 </div>
                                             </div>
@@ -114,7 +108,7 @@ export default function Navbar() {
                             </>
                         )}
 
-                        {!isAuthenticated && (
+                        {!authenticated && (
                             <>
                                 {isLoginPage && (
                                     <>
@@ -175,7 +169,7 @@ export default function Navbar() {
                     </div>
                 </div>
 
-                {isOpen && !isAuthenticated && (
+                {isOpen && !authenticated && (
                     <div className="border-t py-4 md:hidden">
                         <div className="flex flex-col space-y-3">
                             <>

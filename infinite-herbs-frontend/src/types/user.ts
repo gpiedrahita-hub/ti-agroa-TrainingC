@@ -42,3 +42,10 @@ export interface UpdateUserRequest {
     role?: string;
     isActive?: boolean;
 }
+
+export interface UserInfo {
+  id: string;
+  role: Role;
+  firstName: string;
+  lastName: string;
+}

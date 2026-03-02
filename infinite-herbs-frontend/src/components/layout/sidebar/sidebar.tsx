@@ -11,18 +11,14 @@ import NavLink from '@/components/nav/navlink';
 import { Button } from '@/components/ui/button';
 import { X, LogOut } from 'lucide-react';
 import {useRouter} from '@/i18n/navigation';
+import { useAuth } from '@/components/providers/auth-provider';
 
 export default function Sidebar() {
   const t = useTranslations('sidebar');
   const { isOpen, toggle, close } = useSidebar();
   const pathname = usePathname();
-  const [role, setRole] = useState<Role>('user');
   const router = useRouter();
-
-  useEffect(() => {
-    const user = authService.getCurrentUser();
-    setRole(user?.role ?? 'user');
-  }, []);
+  const { user } = useAuth();
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
@@ -41,7 +37,7 @@ export default function Sidebar() {
     };
   }, [isOpen]);
 
-  const items = useMemo(() => filterNavByRole(NAV_ITEMS, role), [role]);
+  const items = useMemo(() => filterNavByRole(NAV_ITEMS, user?.role.name || 'user'), [user?.role.name]);
 
   async function handleLogout() {
     await authService.logout?.();

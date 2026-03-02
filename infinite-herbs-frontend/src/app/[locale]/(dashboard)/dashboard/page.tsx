@@ -4,8 +4,6 @@ import {useEffect, useState} from 'react';
 import {useRouter} from '@/i18n/navigation';
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
 import {Button} from '@/components/ui/button';
-import {authService} from '@/services/auth/authService';
-import {User} from '@/types/user';
 import {useTranslations} from 'next-intl';
 import {
     Activity,
@@ -19,21 +17,19 @@ import {
     TrendingUp,
     Users
 } from 'lucide-react';
+import { useAuth } from '@/components/providers/auth-provider';
 
 export default function DashboardPage() {
     const t = useTranslations();
     const router = useRouter();
-    const [user, setUser] = useState<User | null>(null);
     const [mounted, setMounted] = useState(false);
+    const { user, authenticated } = useAuth();
 
     useEffect(() => {
-        if (!authService.isAuthenticated()) {
+        if (!authenticated) {
             router.push('/login');
             return;
         }
-
-        const currentUser = authService.getCurrentUser();
-        setUser(currentUser);
         setMounted(true);
     }, [router]);
 

@@ -8,7 +8,6 @@ import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow,} from '@/
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
 import {Badge} from '@/components/ui/badge';
 import {userService} from '@/services/users/userService';
-import {authService} from '@/services/auth/authService';
 import {User} from '@/types/user';
 import {Edit, Filter, Mail, MoreVertical, Plus, Search, Shield, Trash2, UserCheck, Users, UserX} from 'lucide-react';
 import {
@@ -31,6 +30,7 @@ import {
 } from '@/components/ui/alert-dialog';
 import {UserFormDialog} from '@/components/users/user-form-dialog';
 import {useTranslations} from 'next-intl';
+import { useAuth } from '@/components/providers/auth-provider';
 
 export default function UsersPage() {
     const t = useTranslations('users');
@@ -43,10 +43,11 @@ export default function UsersPage() {
     const [userToDelete, setUserToDelete] = useState<User | null>(null);
     const [formDialogOpen, setFormDialogOpen] = useState(false);
     const [userToEdit, setUserToEdit] = useState<User | null>(null);
+    const { hasRole } = useAuth();
 
     useEffect(() => {
         loadUsers();
-        setAllowAdmin(authService.hasRole('admin'));
+        setAllowAdmin(hasRole('admin'));
     }, []);
 
     useEffect(() => {
@@ -278,7 +279,7 @@ export default function UsersPage() {
                                                 <TableCell>
                                                     <Badge variant="outline" className="gap-1">
                                                         <Shield className="h-3 w-3"/>
-                                                        {user.role}
+                                                        {user.role.name}
                                                     </Badge>
                                                 </TableCell>
                                                 <TableCell>
