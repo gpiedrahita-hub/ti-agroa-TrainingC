@@ -216,5 +216,12 @@
                 "saved": "Error saving username. Please try again."
             }
         }
+    },
+    "permissions": {
+        "unAuthorize": {
+            "title": "Not allowed",
+            "message": "You do not have permission to view this section.",
+            "button": "Go to dashboard"
+        }
     }
 }

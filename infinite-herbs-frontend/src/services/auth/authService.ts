@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 
 export const authService = {
     async login(credentials: LoginRequest): Promise<LoginResponse> {
-        const {data} = await apiClient.post<LoginResponse>('/auth/login', credentials);
+        const {data} = await apiClient.post<LoginResponse>('/api/auth/login', credentials);
 
         if (typeof window !== 'undefined') {
             if (data.accessToken) {
@@ -19,7 +19,7 @@ export const authService = {
     },
 
     async signUp(body: CreateUserRequest): Promise<void> {
-        await apiClient.post<{ msg:string }>('/auth/register', body);
+        await apiClient.post<{ msg:string }>('/api/auth/register', body);
     },
 
         logout(): void {

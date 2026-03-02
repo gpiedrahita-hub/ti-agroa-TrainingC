@@ -1,9 +1,10 @@
 'use client';
 
+import { useTransition } from 'react';
 import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from '@/i18n/navigation';
+import { useSearchParams } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import { Globe } from 'lucide-react';
 
 import {
     Select,
@@ -19,17 +20,21 @@ export function LanguageToggle() {
     const locale = useLocale();
     const router = useRouter();
     const pathname = usePathname();
+    const searchParams = useSearchParams();
+    const [, startTransition] = useTransition();
 
     function switchLocale(nextLocale: (typeof routing.locales)[number]) {
-        router.replace(pathname, { locale: nextLocale });
+        startTransition(() => {
+            const query = Object.fromEntries(searchParams.entries());
+            router.replace({ pathname, query } as any, { locale: nextLocale });
+            router.refresh();
+        });
     }
 
     return (
         <div className="flex items-center gap-2 md:mr-2">
-
             <Select value={locale} onValueChange={switchLocale}>
                 <SelectTrigger className="h-9 w-35">
-                    <Globe className="h-4 w-4 text-muted-foreground" />
                     <SelectValue />
                 </SelectTrigger>
 

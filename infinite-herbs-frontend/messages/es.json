@@ -216,5 +216,12 @@
                 "saved": "Error al guardar el usuario. Intenta de nuevo."
             }
         }
+    },
+    "permissions":{
+        "unAuthorize": {
+            "title": "No permitido",
+            "message": "No tienes permisos para ver esta sección.",
+            "button": "Ir al dashboard"
+        }
     }
 }
