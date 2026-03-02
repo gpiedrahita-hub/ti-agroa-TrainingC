@@ -66,7 +66,7 @@ export function UserFormDialog({open, onOpenChange, user, onSuccess}: UserFormDi
                 firstName: user.firstName,
                 lastName: user.lastName,
                 password: '',
-                role: user.role as 'admin' | 'user' | 'viewer',
+                role: user.role.name as 'admin' | 'user' | 'viewer',
                 isActive: user.isActive,
             });
         } else {

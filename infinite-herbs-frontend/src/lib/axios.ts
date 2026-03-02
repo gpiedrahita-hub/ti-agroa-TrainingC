@@ -42,7 +42,7 @@ apiClient.interceptors.response.use(
                     refreshToken,
                 });
 
-                Cookies.set('access_token', data.accessToken);
+                Cookies.set('accessToken', data.accessToken);
 
                 if (originalRequest.headers) {
                     originalRequest.headers.Authorization = `Bearer ${data.accessToken}`;
@@ -51,7 +51,6 @@ apiClient.interceptors.response.use(
             } catch (refreshError) {
                 Cookies.remove('accessToken');
                 Cookies.remove('refreshToken');
-                window.location.href = '/login';
                 return Promise.reject(refreshError);
             }
         }

@@ -24,10 +24,11 @@ export default function DashboardPage() {
     const router = useRouter();
     const pathname = usePathname();
     const [mounted, setMounted] = useState(false);
-    const { user } = useAuth();
+    const { user, refresh } = useAuth();
 
     useEffect(() => {
         setMounted(true);
+        refresh();
     } , [pathname]);
 
     if (!mounted) {
