@@ -1,12 +1,11 @@
 'use client';
 
 import { useSidebar } from '@/components/providers/sidebar-provider';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { usePathname } from '@/i18n/navigation';
 import { filterNavByRole, NAV_ITEMS } from '@/lib/auth/roles';
 import { authService } from '@/services/auth/authService';
 import { useTranslations } from 'next-intl';
-import type { Role } from '@/types/role';
 import NavLink from '@/components/nav/navlink';
 import { Button } from '@/components/ui/button';
 import { X, LogOut } from 'lucide-react';
@@ -18,7 +17,7 @@ export default function Sidebar() {
   const { isOpen, toggle, close } = useSidebar();
   const pathname = usePathname();
   const router = useRouter();
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
@@ -41,7 +40,8 @@ export default function Sidebar() {
 
   async function handleLogout() {
     await authService.logout?.();
-    router.replace('/login')
+    await logout();
+    router.refresh();
   }
 
   const renderNav = (onNavigate?: () => void) => (

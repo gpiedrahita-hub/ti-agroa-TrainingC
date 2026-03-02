@@ -26,7 +26,6 @@ export const authService = {
         if (typeof window !== 'undefined') {
             Cookies.remove('accessToken');
             Cookies.remove('refreshToken');
-            // localStorage.removeItem('user');
         }
     },
 

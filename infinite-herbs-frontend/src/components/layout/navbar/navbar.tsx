@@ -17,7 +17,7 @@ export default function Navbar() {
     const router = useRouter();
     const { isOpen, setIsOpen } = useSidebar();
     const [mounted, setMounted] = useState(false);
-    const { user, authenticated } = useAuth();
+    const { user, authenticated , loading } = useAuth();
     const isAuthPage = pathname?.includes('/login') || pathname?.includes('/register');
     const isLoginPage = pathname?.includes('/login');
     const isRegisterPage = pathname?.includes('/register');
@@ -31,6 +31,8 @@ export default function Navbar() {
     if (!mounted) {
         return null;
     }
+
+    if (loading) return null;
 
     return (
         <nav

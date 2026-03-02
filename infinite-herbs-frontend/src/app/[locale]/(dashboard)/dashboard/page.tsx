@@ -1,7 +1,7 @@
 'use client';
 
 import {useEffect, useState} from 'react';
-import {useRouter} from '@/i18n/navigation';
+import {usePathname, useRouter} from '@/i18n/navigation';
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
 import {Button} from '@/components/ui/button';
 import {useTranslations} from 'next-intl';
@@ -22,16 +22,13 @@ import { useAuth } from '@/components/providers/auth-provider';
 export default function DashboardPage() {
     const t = useTranslations();
     const router = useRouter();
+    const pathname = usePathname();
     const [mounted, setMounted] = useState(false);
-    const { user, authenticated } = useAuth();
+    const { user } = useAuth();
 
     useEffect(() => {
-        if (!authenticated) {
-            router.push('/login');
-            return;
-        }
         setMounted(true);
-    }, [router]);
+    } , [pathname]);
 
     if (!mounted) {
         return (
