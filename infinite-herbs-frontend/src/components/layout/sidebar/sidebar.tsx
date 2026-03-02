@@ -17,7 +17,7 @@ export default function Sidebar() {
   const { isOpen, toggle, close } = useSidebar();
   const pathname = usePathname();
   const router = useRouter();
-  const { user, logout } = useAuth();
+  const { user, logout, refresh } = useAuth();
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
@@ -41,7 +41,7 @@ export default function Sidebar() {
   async function handleLogout() {
     await authService.logout?.();
     await logout();
-    router.refresh();
+    router.replace('/login')
   }
 
   const renderNav = (onNavigate?: () => void) => (
