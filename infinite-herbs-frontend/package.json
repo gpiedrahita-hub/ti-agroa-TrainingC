@@ -12,7 +12,9 @@
     "prisma:prod:deploy": "dotenv -e .env.production -- npx prisma migrate deploy",
     "prisma:prod:seed": "dotenv -e .env.production -- npx prisma db seed",
     "prisma:test:reset": "dotenv -e .env.test -- npx prisma migrate reset --force",
-    "prisma:test:seed": "dotenv -e .env.test -- npx prisma db seed"
+    "prisma:test:seed": "dotenv -e .env.test -- npx prisma db seed",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
