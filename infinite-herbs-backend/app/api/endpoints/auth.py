@@ -30,18 +30,39 @@ def login(credentials: LoginRequest, db: Session = Depends(get_db)):
             detail="Usuario inactivo"
         )
 
+    role = user.role
+    permissions = role.permissions
+
+    permissions_claim = []
+
+    for permission in permissions:
+        permissions_claim.append({
+            "id": permission.id,
+            "name": permission.key,
+        })
+
+    role_claims = {
+        "id": role.id,
+        "name": role.name,
+        "permissions": permissions_claim,
+    }
     # Crear tokens
     access_token_expires = timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = create_access_token(
-        data={"sub": user.userName, "user_id": user.id},
+        data={"sub": user.id,
+              "firstName": user.firstName,
+              "lastName": user.lastName,
+              "role": role_claims},
         expires_delta=access_token_expires
     )
-    refresh_token = create_refresh_token(data={"sub": user.userName, "user_id": user.id})
+    refresh_token = create_refresh_token(data={"sub": user.id,
+              "firstName": user.firstName,
+              "lastName": user.lastName,
+              "role": role_claims})
 
     return LoginResponse(
         accessToken=access_token,
-        refreshToken=refresh_token,
-        user=UserResponse.model_validate(user)
+        refreshToken=refresh_token
     )
 
 
@@ -56,10 +77,12 @@ def refresh_token(refresh_data: RefreshTokenRequest):
             detail="Token de refresh inválido"
         )
 
-    username = payload.get("sub")
-    user_id = payload.get("user_id")
+    user_id = payload.get("sub")
+    first_name = payload.get("firstName")
+    last_name = payload.get("lastName")
+    role = payload.get("role")
 
-    if not username or not user_id:
+    if not user_id or not first_name or not last_name or not role:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Token inválido"
@@ -68,7 +91,10 @@ def refresh_token(refresh_data: RefreshTokenRequest):
     # Crear nuevo access token
     access_token_expires = timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = create_access_token(
-        data={"sub": username, "user_id": user_id},
+        data={"sub": user_id,
+              "firstName": first_name,
+              "lastName": last_name,
+              "role": role},
         expires_delta=access_token_expires
     )
 

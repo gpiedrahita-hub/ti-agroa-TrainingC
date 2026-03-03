@@ -3,8 +3,8 @@ from typing import Optional
 from sqlalchemy.orm import Session
 
 from app.core.security import get_password_hash, verify_password
-from app.models.user import User
 from app.schemas.user import UserCreate, UserUpdate
+from app.models import User, Role, Permission
 
 
 class UserService:
@@ -22,19 +22,24 @@ class UserService:
         return db.query(User).filter(User.id == user_id).first()
 
     @staticmethod
+    def get_role_by_name(db: Session, role_name: str) -> Optional[Role]:
+        return db.query(Role).filter(Role.name == role_name).first()
+
+    @staticmethod
     def get_all_users(db: Session, skip: int = 0, limit: int = 100) -> list[type[User]]:
         return db.query(User).offset(skip).limit(limit).all()
 
     @staticmethod
     def create_user(db: Session, user: UserCreate) -> User:
         hashed_password = get_password_hash(user.password)
+        role = UserService.get_role_by_name(db, user.role)
         db_user = User(
             userName=user.userName,
             email=user.email,
             hashedPassword=hashed_password,
             firstName=user.firstName,
             lastName=user.lastName,
-            role=user.role,
+            role_id=role.id,
             isActive = user.isActive
         )
         db.add(db_user)
@@ -47,7 +52,9 @@ class UserService:
         db_user = UserService.get_user_by_id(db, user_id)
         if not db_user:
             return None
-
+        if user_update.role:
+            role = UserService.get_role_by_name(db, user_update.role)
+            db_user.role_id = role.id
         update_data = user_update.model_dump(exclude_unset=True)
         for field, value in update_data.items():
             setattr(db_user, field, value)

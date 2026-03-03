@@ -49,3 +49,11 @@ export interface UserInfo {
   firstName: string;
   lastName: string;
 }
+
+export type JwtPayloadUser = {
+  sub: string;
+  firstName: string;
+  lastName: string;
+  role: Role;
+  exp: number;
+};

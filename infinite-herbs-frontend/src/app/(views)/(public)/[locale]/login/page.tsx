@@ -1,7 +1,7 @@
 'use client';
 
 import {useEffect, useMemo, useState} from 'react';
-import {useRouter} from '@/i18n/navigation';
+import { usePathname , useRouter } from '@/i18n/navigation';
 import {useForm} from 'react-hook-form';
 import {zodResolver} from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -9,7 +9,6 @@ import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
 import {Label} from '@/components/ui/label';
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
-import {authService} from '@/services/auth/authService';
 import {Link} from '@/i18n/navigation';
 import {useTranslations} from "next-intl";
 import { useAuth } from '@/components/providers/auth-provider';
@@ -17,14 +16,15 @@ import { useAuth } from '@/components/providers/auth-provider';
 export default function LoginPage() {
     const t = useTranslations('login');
     const router = useRouter();
+    const pathname = usePathname()
     const [error, setError] = useState<string | null>(null);
-    const { authenticated } = useAuth()
+    const { authenticated, login } = useAuth()
 
     useEffect(() => {
         if(authenticated){
             router.push('/dashboard');
         }
-    }, [authenticated])
+    }, [authenticated, pathname, router])
 
     const loginSchema = useMemo(() => z.object({
         userName: z.string().min(3, {message: t('error.messages.username')}),
@@ -43,7 +43,7 @@ export default function LoginPage() {
     const onSubmit = handleSubmit(async (data) => {
         setError(null);
         try {
-            await authService.login(data);
+            await login(data);
             router.push('/dashboard');
         } catch (err: any) {
             setError(err?.response?.data?.message || t('error.login'));

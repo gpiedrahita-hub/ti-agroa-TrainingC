@@ -4,7 +4,7 @@ import { useTransition } from 'react';
 import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from '@/i18n/navigation';
 import { useSearchParams } from 'next/navigation';
-import { routing } from '@/i18n/routing';
+import { LANGS, routing } from '@/i18n/routing';
 
 import {
     Select,
@@ -13,8 +13,6 @@ import {
     SelectTrigger,
     SelectValue
 } from '@/components/ui/select';
-
-import { LANGS } from '@/lib/languages';
 
 export function LanguageToggle() {
     const locale = useLocale();
@@ -26,7 +24,7 @@ export function LanguageToggle() {
     function switchLocale(nextLocale: (typeof routing.locales)[number]) {
         startTransition(() => {
             const query = Object.fromEntries(searchParams.entries());
-            router.replace({ pathname, query } as any, { locale: nextLocale });
+            router.replace({ pathname, query } as never, { locale: nextLocale });
             router.refresh();
         });
     }

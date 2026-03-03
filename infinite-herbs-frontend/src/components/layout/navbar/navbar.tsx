@@ -4,8 +4,7 @@ import { useSidebar } from '@/components/providers/sidebar-provider';
 import { LanguageToggle } from '@/components/toggles/language-toggle';
 import { ThemeToggle } from '@/components/toggles/theme-toggle';
 import { useEffect, useState } from 'react';
-import { Link } from '@/i18n/navigation';
-import { usePathname, useRouter } from '@/i18n/navigation';
+import { Link, usePathname, useRouter } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
 import { Leaf, Menu, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -16,21 +15,13 @@ export default function Navbar() {
     const pathname = usePathname();
     const router = useRouter();
     const { isOpen, setIsOpen } = useSidebar();
-    const [mounted, setMounted] = useState(false);
     const { user, authenticated , loading } = useAuth();
     const isAuthPage = pathname?.includes('/login') || pathname?.includes('/register');
     const isLoginPage = pathname?.includes('/login');
     const isRegisterPage = pathname?.includes('/register');
 
-    useEffect(() => {
-        setMounted(true);
-    }, [pathname]);
-
     const toggleMenu = () => setIsOpen(!isOpen);
 
-    if (!mounted) {
-        return null;
-    }
 
     if (loading) return null;
 

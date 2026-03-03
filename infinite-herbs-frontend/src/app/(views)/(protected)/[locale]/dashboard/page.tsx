@@ -1,6 +1,6 @@
 'use client';
 
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import {usePathname, useRouter} from '@/i18n/navigation';
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
 import {Button} from '@/components/ui/button';
@@ -23,15 +23,13 @@ export default function DashboardPage() {
     const t = useTranslations();
     const router = useRouter();
     const pathname = usePathname();
-    const [mounted, setMounted] = useState(false);
-    const { user, refresh } = useAuth();
+    const { user, refresh, loading } = useAuth();
 
     useEffect(() => {
-        setMounted(true);
         refresh();
-    } , [pathname]);
+    } , [pathname, refresh]);
 
-    if (!mounted) {
+    if (loading) {
         return (
             <div className="flex min-h-screen items-center justify-center">
                 <div className="flex flex-col items-center gap-2">

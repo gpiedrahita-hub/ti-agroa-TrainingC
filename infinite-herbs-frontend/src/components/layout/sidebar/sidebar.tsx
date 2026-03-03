@@ -2,11 +2,10 @@
 
 import { useSidebar } from '@/components/providers/sidebar-provider';
 import { useEffect, useMemo } from 'react';
-import { usePathname } from '@/i18n/navigation';
 import { filterNavByRole, NAV_ITEMS } from '@/lib/auth/roles';
 import { authService } from '@/services/auth/authService';
 import { useTranslations } from 'next-intl';
-import NavLink from '@/components/nav/navlink';
+import { NavLink } from '@/components/nav/navlink';
 import { Button } from '@/components/ui/button';
 import { X, LogOut } from 'lucide-react';
 import {useRouter} from '@/i18n/navigation';
@@ -15,9 +14,8 @@ import { useAuth } from '@/components/providers/auth-provider';
 export default function Sidebar() {
   const t = useTranslations('sidebar');
   const { isOpen, toggle, close } = useSidebar();
-  const pathname = usePathname();
   const router = useRouter();
-  const { user, logout, refresh } = useAuth();
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
@@ -25,7 +23,7 @@ export default function Sidebar() {
     }
     if (isOpen) window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [isOpen]);
+  }, [isOpen, toggle]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -39,8 +37,8 @@ export default function Sidebar() {
   const items = useMemo(() => filterNavByRole(NAV_ITEMS, user?.role.name || 'user'), [user?.role.name]);
 
   async function handleLogout() {
-    await authService.logout?.();
-    await logout();
+    authService.logout?.();
+    logout();
     router.replace('/login')
   }
 
@@ -53,15 +51,11 @@ export default function Sidebar() {
 
         <div className="space-y-1">
           {items.map((item) => {
-            const active =
-              pathname === item.href || pathname.startsWith(item.href + '/');
             return (
               <NavLink
                 key={item.key}
                 href={item.href}
                 label={item.label}
-                active={active}
-                onClick={onNavigate}
               />
             );
           })}
@@ -112,7 +106,7 @@ export default function Sidebar() {
           id="mobile-sidebar"
           role="dialog"
           aria-modal="true"
-          className={'absolute right-0 top-0 h-full w-[86%] max-w-sm bg-background shadow-2xl' + 
+          className={'absolute right-0 top-0 h-full w-[86%] max-w-sm bg-background shadow-2xl' +
             'border-l border-border flex flex-col transition-transform duration-200 ease-out ' +
             (isOpen ? 'translate-x-0' : 'translate-x-full')
           }

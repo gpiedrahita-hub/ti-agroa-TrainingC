@@ -1,17 +1,12 @@
 import axios, {AxiosError, AxiosInstance, InternalAxiosRequestConfig} from 'axios';
 import Cookies from 'js-cookie';
 
-const mode = process.env.NEXT_PUBLIC_API_MODE
-
 const apiClient: AxiosInstance = axios.create({
-  baseURL: mode === 'external'
-    ? process.env.NEXT_PUBLIC_API_BASE_URL
-    : undefined,
-    withCredentials: true,
-    timeout: parseInt(process.env.NEXT_PUBLIC_API_TIMEOUT || '30000'),
-    headers: {
-        'Content-Type': 'application/json',
-    },
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+  timeout: parseInt(process.env.NEXT_PUBLIC_API_TIMEOUT || '30000'),
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 apiClient.interceptors.request.use(

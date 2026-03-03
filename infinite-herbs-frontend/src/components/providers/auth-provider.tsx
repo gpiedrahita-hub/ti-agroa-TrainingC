@@ -1,64 +1,62 @@
 'use client';
 
-import React , { createContext , useContext , useEffect , useMemo , useState } from 'react';
+import React, { createContext, useCallback, useContext, useMemo, useState } from 'react';
 import { UserInfo } from '@/types/user';
+import { authService } from '@/services/auth/authService';
+import type { LoginRequest } from '@/types/user';
 
 type AuthState = {
-  mounted: boolean
-  loading: boolean
-  authenticated: boolean
+  mounted: boolean;
+  loading: boolean;
+  authenticated: boolean;
+  user: UserInfo | null;
   hasRole: (allowedRoles: string | string[]) => boolean;
-  user: UserInfo | null
-  refresh: () => Promise<void>
-  logout: () => Promise<void>
-}
+  refresh: () => void;
+  login: (credentials: LoginRequest) => Promise<void>;
+  logout: () => void;
+};
 
 const AuthContext = createContext<AuthState | null>(null);
 
-async function fetchMe(): Promise<{ authenticated: boolean; user: UserInfo | null }> {
-  const res = await fetch('/api/auth/me' , {credentials: 'include' , cache: 'no-store'});
-  if (!res.ok) return {authenticated: false , user: null};
-  const data = (await res.json()) as UserInfo | null;
-  return {authenticated: true , user: data ?? null};
+function readAuthFromToken(): { authenticated: boolean; user: UserInfo | null } {
+  const authenticated = authService.isAuthenticated();
+  const user = authenticated ? authService.getCurrentUser() : null;
+  return { authenticated: authenticated && !!user, user };
 }
 
-export function AuthProvider({children}: { children: React.ReactNode }) {
-  const [mounted , setMounted] = useState(false);
-  const [loading , setLoading] = useState(true);
-  const [authenticated , setAuthenticated] = useState(false);
-  const [user , setUser] = useState<UserInfo | null>(null);
+export function AuthProvider({ children }: { children: React.ReactNode }) {
+  const [{ authenticated, user }, setAuth] = useState(() => readAuthFromToken());
+  const [mounted] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  const refresh = async () => {
+  const refresh = useCallback(() => {
+    setAuth(readAuthFromToken());
+  }, []);
+
+  const login = useCallback(async (credentials: LoginRequest) => {
     setLoading(true);
-    const {authenticated , user} = await fetchMe();
-    setAuthenticated(authenticated);
-    setUser(user);
+    await authService.login(credentials);
+    setAuth(readAuthFromToken());
     setLoading(false);
-    setMounted(true);
-  };
+  }, []);
 
-  const logout = async () => {
-    await fetch('/api/auth/logout' , {method: 'POST' , credentials: 'include'});
-    setAuthenticated(false);
-    setUser(null);
-  };
+  const logout = useCallback(() => {
+    authService.logout();
+    setAuth({ authenticated: false, user: null });
+  }, []);
 
-  const hasRole = (allowedRoles: string | string[]): boolean => {
-    if (user) {
-      if (!user?.role) return false;
-      const roles = Array.isArray(allowedRoles) ? allowedRoles : [allowedRoles];
-      return roles.includes(user.role.name);
-    }
-    return false;
-  };
-
-  useEffect(() => {
-    refresh();
-  } , []);
+  const hasRole = useCallback(
+      (allowedRoles: string | string[]): boolean => {
+        if (!user?.role) return false;
+        const roles = Array.isArray(allowedRoles) ? allowedRoles : [allowedRoles];
+        return roles.includes(user.role.name);
+      },
+      [user]
+  );
 
   const value = useMemo(
-      () => ({mounted , loading , authenticated , hasRole , user , refresh , logout}) ,
-      [mounted , loading , authenticated , hasRole , user]
+      () => ({ mounted, loading, authenticated, user, hasRole, refresh, login, logout }),
+      [mounted, loading, authenticated, user, hasRole, refresh, login, logout]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
