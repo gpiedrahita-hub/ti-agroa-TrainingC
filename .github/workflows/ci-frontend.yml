@@ -25,6 +25,7 @@ jobs:
           cache-dependency-path: infinite-herbs-frontend/package-lock.json
 
       - run: npm ci
+      - run: npx playwright install --with-deps
       - run: npm run lint
       - run: npm run test:e2e
       - run: npm run build
