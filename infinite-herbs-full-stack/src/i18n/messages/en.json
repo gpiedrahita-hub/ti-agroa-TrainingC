@@ -1,0 +1,227 @@
+{
+    "home": {
+        "title": "Hello World!"
+    },
+    "navbar": {
+        "home": "Home",
+        "features": "Features",
+        "about": "About",
+        "contact": "Contact",
+        "login": "Login",
+        "register": "Sign Up",
+        "title": "Infinite Herbs"
+    },
+    "login": {
+        "title": "Infinite Herbs",
+        "description": "Enter your credentials to continue",
+        "link": {
+            "home": "Home"
+        },
+        "button": {
+            "login": "Login",
+            "loading": "Logging in..."
+        },
+        "label": {
+            "user": "User",
+            "password": "Password"
+        },
+        "placeholder": {
+            "user": "user"
+        },
+        "error": {
+            "messages": {
+                "username": "Username must have at least 3 characters",
+                "password": "Password must be at least 6 characters long"
+            },
+            "login": "Login error"
+        }
+    },
+    "register": {
+        "title": "Create Account",
+        "description": "Sign up to start using Manage App",
+        "label": {
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email",
+            "username": "Username",
+            "password": "Password",
+            "confirmPassword": "Confirm Password"
+        },
+        "placeholder": {
+            "firstName": "John",
+            "lastName": "Doe",
+            "email": "john@example.com",
+            "username": "johndoe"
+        },
+        "error": {
+            "messages": {
+                "firstName": "First name must be at least 2 characters",
+                "lastName": "Last name must be at least 2 characters",
+                "email": "Enter a valid email",
+                "username": "Username must be at least 3 characters",
+                "password": "Password must be at least 6 characters",
+                "confirmPassword": "Confirmation must be at least 6 characters",
+                "passwordMatch": "Passwords do not match"
+            },
+            "register": "Error creating account. Please try again."
+        },
+        "button": {
+            "register": "Create Account",
+            "loading": "Creating account..."
+        },
+        "link": {
+            "login": "Already have an account? Login",
+            "home": "Back to home"
+        }
+    },
+    "landing": {
+        "hero": {
+            "title": "Manage your users",
+            "subtitle": "Comprehensive system for crop control and management",
+            "cta_primary": "Get Started",
+            "cta_secondary": "Learn More"
+        },
+        "features": {
+            "title": "Key Features",
+            "subtitle": "Everything you need to manage your production",
+            "feature1_title": "User Management",
+            "feature1_desc": "Complete control of user roles and permissions",
+            "feature2_title": "Real-Time Dashboard",
+            "feature2_desc": "View important metrics instantly",
+            "feature3_title": "Advanced Reports",
+            "feature3_desc": "Generate detailed production reports",
+            "feature4_title": "Security Guaranteed",
+            "feature4_desc": "JWT authentication and data encryption"
+        },
+        "cta": {
+            "title": "Ready to get started?",
+            "subtitle": "Join Manage App today and transform your management",
+            "button": "Create Free Account"
+        }
+    },
+    "sidebar": {
+        "title": "Infinite Herbs",
+        "logout": "Logout",
+        "navigation": "Options",
+        "close": "Close",
+        "menu": "Menu",
+        "labels": {
+            "home": "Home",
+            "users": "Users"
+        }
+    },
+    "dashboard": {
+        "welcome": "Welcome",
+        "subtitle": "Here's your daily overview",
+        "stats": {
+            "revenue": "Total Revenue",
+            "users": "Active Users",
+            "orders": "Orders",
+            "products": "Products",
+            "fromLastMonth": "from last month",
+            "newThisMonth": "new this month",
+            "newProducts": "new products"
+        },
+        "recentActivity": "Recent Activity",
+        "recentActivityDesc": "Latest updates from your system",
+        "quickActions": "Quick Actions",
+        "quickActionsDesc": "Access most used features",
+        "actions": {
+            "manageProducts": "Manage Products",
+            "manageUsers": "Manage Users",
+            "viewOrders": "View Orders",
+            "addProduct": "Add New Product"
+        },
+        "topProducts": "Top Selling Products",
+        "inventory": "Inventory",
+        "inStock": "In stock",
+        "lowStock": "Low stock",
+        "outOfStock": "Out of stock",
+        "performance": "Performance",
+        "sales": "Sales",
+        "satisfaction": "Satisfaction",
+        "delivery": "On-time delivery"
+    },
+    "legend": {
+        "loading": "Loading...",
+        "role": "Role"
+    },
+    "users": {
+        "title": "User Management",
+        "subtitle": "Manage your platform users",
+        "newUser": "New User",
+        "loading": "Loading users...",
+        "stats": {
+            "total": "Total Users",
+            "totalDesc": "Registered users",
+            "active": "Active Users",
+            "activeDesc": "Users with access",
+            "inactive": "Inactive Users",
+            "inactiveDesc": "Currently without access"
+        },
+        "userList": "User List",
+        "userListDesc": "Manage and view all users",
+        "search": "Search users...",
+        "noResults": "No users found",
+        "table": {
+            "user": "User",
+            "contact": "Contact",
+            "role": "Role",
+            "status": "Status",
+            "actions": "Actions"
+        },
+        "active": "Active",
+        "inactive": "Inactive",
+        "actions": "Actions",
+        "edit": "Edit",
+        "delete": "Delete",
+        "deleteDialog": {
+            "title": "Delete user?",
+            "description": "This action cannot be undone. This will permanently delete the user",
+            "cancel": "Cancel",
+            "confirm": "Delete"
+        },
+        "form": {
+            "createTitle": "Create New User",
+            "createDescription": "Fill in the information to create a new user",
+            "editTitle": "Edit User",
+            "editDescription": "Modify user information",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "username": "Username",
+            "usernameDesc": "Unique name for login",
+            "email": "Email",
+            "password": "Password",
+            "passwordOptional": "(optional)",
+            "passwordPlaceholder": "Leave empty to keep current",
+            "passwordDesc": "Only fill in if you want to change the password",
+            "role": "Role",
+            "selectRole": "Select role",
+            "roleUser": "User",
+            "roleViewer": "Viewer",
+            "roleAdmin": "Administrator",
+            "active": "Active User",
+            "activeDesc": "User can access the system",
+            "cancel": "Cancel",
+            "create": "Create User",
+            "update": "Update User",
+            "error": {
+                "messages": {
+                    "firstName": "First name must be at least 2 characters",
+                    "lastName": "Last name must be at least 2 characters",
+                    "email": "Enter a valid email address",
+                    "username": "Username must be at least 3 characters",
+                    "password": "Password must be at least 6 characters"
+                },
+                "saved": "Error saving username. Please try again."
+            }
+        }
+    },
+    "permissions": {
+        "unAuthorize": {
+            "title": "Not allowed",
+            "message": "You do not have permission to view this section.",
+            "button": "Go to dashboard"
+        }
+    }
+}
