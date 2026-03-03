@@ -1,17 +1,8 @@
-import { PrismaClient } from '@/generated/prisma';
-import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3';
+import { PrismaClient } from "@prisma/client";
+import { withAccelerate } from "@prisma/extension-accelerate";
 
-const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
+const createPrisma = () => new PrismaClient().$extends(withAccelerate());
 
-const adapter = new PrismaBetterSqlite3({
-    url: `${process.env.DATABASE_URL}`
-});
+export type PrismaAcceleratedClient = ReturnType<typeof createPrisma>;
 
-export const prisma =
-    globalForPrisma.prisma ??
-    new PrismaClient({
-      adapter ,
-      log: ['error' , 'warn'] ,
-    });
-
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
+export const prisma: PrismaAcceleratedClient = createPrisma();

@@ -51,3 +51,11 @@ next-env.d.ts
 **/test-results/**
 
 **/e2e/.auth.json
+# OpenNext
+.open-next
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example

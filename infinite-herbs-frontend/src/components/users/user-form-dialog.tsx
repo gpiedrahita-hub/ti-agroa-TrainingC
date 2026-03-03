@@ -21,6 +21,8 @@ import {userService} from '@/services/users/userService';
 import {CreateUserRequest, User} from '@/types/user';
 import {useTranslations} from 'next-intl';
 import {Edit, Loader2, Plus} from 'lucide-react';
+import { ApiError } from 'next/dist/server/api-utils';
+import axios from 'axios';
 
 interface UserFormDialogProps {
     open: boolean;
@@ -97,9 +99,9 @@ export function UserFormDialog({open, onOpenChange, user, onSuccess}: UserFormDi
             }
             onSuccess();
             form.reset();
-        } catch (error: any) {
-            console.error('Error:', error);
-            alert(error.response?.data?.message || t('error.messages.saved'));
+        } catch (err: unknown) {
+            if(axios.isAxiosError<ApiError>(err)) alert(err.response?.data?.message || t('error.messages.saved'));
+            console.error('Error:', err);
         } finally {
             setIsLoading(false);
         }

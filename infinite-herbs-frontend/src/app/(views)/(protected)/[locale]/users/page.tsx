@@ -51,7 +51,7 @@ export default function UsersPage() {
         loadUsers();
         setAllowAdmin(hasRole('admin'));
         setAllowView(hasRole(['admin', 'viewer']))
-    }, []);
+    }, [hasRole, users]);
 
 
     useEffect(() => {
@@ -63,7 +63,7 @@ export default function UsersPage() {
             );
             setUsers(filteredUsers);
         }
-    }, [searchTerm]);
+    }, [searchTerm, users]);
 
     const loadUsers = async () => {
         try {

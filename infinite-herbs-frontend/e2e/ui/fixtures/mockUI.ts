@@ -3,7 +3,7 @@ import { test as base, expect, type Page } from '@playwright/test'
 type Fixtures = { page: Page }
 
 export const test = base.extend<Fixtures>({
-  page: async ({ page, context }, use) => {
+  page: async ({ page, context }, USE) => {
     await context.route('**/api/auth/login', async route => {
       const body = route.request().postDataJSON?.() ?? {}
       const { userName, password } = body
@@ -51,7 +51,7 @@ export const test = base.extend<Fixtures>({
       })
     })
 
-    await use(page)
+    await USE(page)
   },
 })
 

@@ -12,6 +12,8 @@ import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/compo
 import {Link} from '@/i18n/navigation';
 import {useTranslations} from "next-intl";
 import { useAuth } from '@/components/providers/auth-provider';
+import { ApiError } from 'next/dist/server/api-utils';
+import axios from 'axios';
 
 export default function LoginPage() {
     const t = useTranslations('login');
@@ -45,8 +47,8 @@ export default function LoginPage() {
         try {
             await login(data);
             router.push('/dashboard');
-        } catch (err: any) {
-            setError(err?.response?.data?.message || t('error.login'));
+        } catch (err: unknown) {
+            if(axios.isAxiosError<ApiError>(err)) setError(err?.response?.data?.message || t('error.login'));
         }
     });
 

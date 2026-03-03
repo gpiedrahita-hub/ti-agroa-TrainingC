@@ -8,7 +8,7 @@ const PUPLIC_PATHS = ['/', '/login', '/register']
 
 function getLocaleFromPathname( pathname: string) {
     const segmento = pathname.split('/')[1]
-    return routing.locales.includes(segmento as any) ? segmento : routing.defaultLocale
+    return routing.locales.includes(segmento as string) ? segmento : routing.defaultLocale
 }
 
 export default function middleware(request: NextRequest) {

@@ -3,7 +3,6 @@
 import { useSidebar } from '@/components/providers/sidebar-provider';
 import { LanguageToggle } from '@/components/toggles/language-toggle';
 import { ThemeToggle } from '@/components/toggles/theme-toggle';
-import { useEffect, useState } from 'react';
 import { Link, usePathname, useRouter } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
 import { Leaf, Menu, X } from 'lucide-react';

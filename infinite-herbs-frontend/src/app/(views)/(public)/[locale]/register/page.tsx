@@ -13,6 +13,8 @@ import { authService } from '@/services/auth/authService';
 import {Link} from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import {RegisterRequest} from "@/types/user";
+import { ApiError } from 'next/dist/server/api-utils';
+import axios from 'axios';
 
 export default function RegisterPage() {
     const t = useTranslations('register');
@@ -56,8 +58,8 @@ export default function RegisterPage() {
             }
             await authService.signUp(body);
             router.push('/login');
-        } catch (err: any) {
-            setError(err.response?.data?.message || t('error.register'));
+        } catch (err: unknown) {
+            if(axios.isAxiosError<ApiError>(err)) setError(err.response?.data?.message || t('error.register'));
         } finally {
             setIsLoading(false);
         }

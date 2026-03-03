@@ -3,9 +3,10 @@ import createNextIntlPlugin from 'next-intl/plugin';
 
 const nextConfig: NextConfig = {
   output: "standalone",
-  /* config options here */
   reactCompiler: true,
 };
 
 const withNextIntl = createNextIntlPlugin();
 export default withNextIntl(nextConfig);
+
+import('@opennextjs/cloudflare').then(m => m.initOpenNextCloudflareForDev());
