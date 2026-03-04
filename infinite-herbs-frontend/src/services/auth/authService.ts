@@ -1,16 +1,15 @@
 import apiClient from '@/lib/axios';
-import { CreateUserRequest , LoginRequest , LoginResponse  } from '@/types/user';
+import { CreateUserRequest , JwtPayloadUser , LoginRequest , LoginResponse , UserInfo } from '@/types/user';
 import Cookies from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
-import { UserInfo, JwtPayloadUser } from '@/types/user';
 
 export const authService = {
   async login(credentials: LoginRequest): Promise<LoginResponse> {
-    const { data } = await apiClient.post<LoginResponse>('/api/auth/login' , credentials);
+    const {data} = await apiClient.post<LoginResponse>('/api/auth/login' , credentials);
 
     if (typeof window !== 'undefined') {
-      if (data.accessToken) Cookies.set("accessToken", data.accessToken);
-      if (data.refreshToken) Cookies.set("refreshToken", data.refreshToken);
+      if (data.accessToken) Cookies.set('accessToken' , data.accessToken);
+      if (data.refreshToken) Cookies.set('refreshToken' , data.refreshToken);
     }
 
     return data;
@@ -28,16 +27,16 @@ export const authService = {
   } ,
 
   getCurrentUser(): UserInfo | null {
-    if (typeof window === "undefined") return null;
+    if (typeof window === 'undefined') return null;
 
-    const token = Cookies.get("accessToken");
+    const token = Cookies.get('accessToken');
     if (!token) return null;
-    return this._getUserInfoFromToken(token)
+    return this._getUserInfoFromToken(token);
   } ,
 
   isAuthenticated(): boolean {
-    if (typeof window === "undefined") return false;
-    const token = Cookies.get("accessToken");
+    if (typeof window === 'undefined') return false;
+    const token = Cookies.get('accessToken');
     return this._isTokenValid(token);
   } ,
 

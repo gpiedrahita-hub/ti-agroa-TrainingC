@@ -9,6 +9,7 @@
     "lint": "eslint",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
+    "build:static": "npm run build && mkdir dist && cp -r .next/static dist/_next && cp -r public dist/",
     "build:standalone": "next build && node -e \"require('fs').cpSync('.next/static', '.next/standalone/.next/static', {recursive:true}); require('fs').cpSync('public', '.next/standalone/public', {recursive:true});\"",
     "start:standalone": "node .next/standalone/server.js"
   },

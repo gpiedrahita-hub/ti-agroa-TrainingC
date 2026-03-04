@@ -1,61 +1,61 @@
-import axios, {AxiosError, AxiosInstance, InternalAxiosRequestConfig} from 'axios';
+import axios , { AxiosError , AxiosInstance , InternalAxiosRequestConfig } from 'axios';
 import Cookies from 'js-cookie';
 
 const apiClient: AxiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
-  timeout: parseInt(process.env.NEXT_PUBLIC_API_TIMEOUT || '30000'),
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL ,
+  timeout: parseInt(process.env.NEXT_PUBLIC_API_TIMEOUT || '30000') ,
   headers: {
-    'Content-Type': 'application/json',
-  },
+    'Content-Type': 'application/json' ,
+  } ,
 });
 
 apiClient.interceptors.request.use(
     (config: InternalAxiosRequestConfig) => {
-        if (typeof window !== 'undefined') {
-            const token = Cookies.get('accessToken');
-            if (token && config.headers) {
-                config.headers.Authorization = `Bearer ${token}`;
-            }
+      if (typeof window !== 'undefined') {
+        const token = Cookies.get('accessToken');
+        if (token && config.headers) {
+          config.headers.Authorization = `Bearer ${token}`;
         }
-        return config;
-    },
+      }
+      return config;
+    } ,
     (error: AxiosError) => {
-        return Promise.reject(error);
+      return Promise.reject(error);
     }
 );
 
 apiClient.interceptors.response.use(
-    (response) => response,
+    (response) => response ,
     async (error: AxiosError) => {
-        const originalRequest = error.config as InternalAxiosRequestConfig & { _retry?: boolean };
+      const originalRequest = error.config as InternalAxiosRequestConfig & { _retry?: boolean };
 
-        if (error.response?.status === 401 && !originalRequest._retry) {
-            originalRequest._retry = true;
+      if (error.response?.status === 401 && !originalRequest._retry) {
+        originalRequest._retry = true;
 
-            try {
-                const refreshToken = Cookies.get('refreshToken');
-                if (!refreshToken) {
-                    throw new Error('No refresh token');
-                }
+        try {
+          const refreshToken = Cookies.get('refreshToken');
+          if (!refreshToken) {
+            throw new Error('No refresh token');
+          }
 
-                const {data} = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/refresh`, {
-                    refreshToken,
-                });
+          const {data} = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/refresh` , {
+            refreshToken ,
+          });
 
-                Cookies.set('accessToken', data.accessToken);
+          Cookies.set('accessToken' , data.accessToken);
 
-                if (originalRequest.headers) {
-                    originalRequest.headers.Authorization = `Bearer ${data.accessToken}`;
-                }
-                return apiClient(originalRequest);
-            } catch (refreshError) {
-                Cookies.remove('accessToken');
-                Cookies.remove('refreshToken');
-                return Promise.reject(refreshError);
-            }
+          if (originalRequest.headers) {
+            originalRequest.headers.Authorization = `Bearer ${data.accessToken}`;
+          }
+          return apiClient(originalRequest);
+        } catch (refreshError) {
+          Cookies.remove('accessToken');
+          Cookies.remove('refreshToken');
+          return Promise.reject(refreshError);
         }
+      }
 
-        return Promise.reject(error);
+      return Promise.reject(error);
     }
 );
 

@@ -1,6 +1,6 @@
 'use client';
 
-import React , { createContext, useContext, useMemo, useState } from 'react';
+import React , { createContext , useContext , useMemo , useState } from 'react';
 
 type SidebarCtx = {
   isOpen: boolean;
@@ -11,17 +11,17 @@ type SidebarCtx = {
 
 const Ctx = createContext<SidebarCtx | null>(null);
 
-export function SidebarProvider({ children }: { children: React.ReactNode }) {
-  const [isOpen, setIsOpen] = useState(false);
+export function SidebarProvider({children}: { children: React.ReactNode }) {
+  const [isOpen , setIsOpen] = useState(false);
 
   const value = useMemo(
-    () => ({
-      isOpen,
-      setIsOpen,
-      toggle: () => setIsOpen((v) => !v),
-      close: () => setIsOpen(false),
-    }),
-    [isOpen]
+      () => ({
+        isOpen ,
+        setIsOpen ,
+        toggle: () => setIsOpen((v) => !v) ,
+        close: () => setIsOpen(false) ,
+      }) ,
+      [isOpen]
   );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;

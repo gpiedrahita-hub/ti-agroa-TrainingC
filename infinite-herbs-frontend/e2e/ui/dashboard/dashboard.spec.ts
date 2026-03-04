@@ -1,17 +1,17 @@
 import { test } from '../fixtures/mockUI';
 
-test('authenticate', async ({ page }) => {
-  const locale = 'es'
-  await page.goto(`/${locale}/login`)
+test('authenticate' , async ({page}) => {
+  const locale = 'es';
+  await page.goto(`/${locale}/login`);
 
-  await page.locator('#userName').fill('admin')
-  await page.locator('#password').fill('12345678')
-  await page.getByRole('button', { name: 'Iniciar Sesión' }).click()
-})
+  await page.locator('#userName').fill('admin');
+  await page.locator('#password').fill('12345678');
+  await page.getByRole('button' , {name: 'Iniciar Sesión'}).click();
+});
 
-test('unauthenticated user is redirected to login', async ({ page, context }) => {
-  await context.clearCookies()
+test('unauthenticated user is redirected to login' , async ({page , context}) => {
+  await context.clearCookies();
 
-  const locale = 'es'
-  await page.goto(`/${locale}/dashboard`)
-})
+  const locale = 'es';
+  await page.goto(`/${locale}/dashboard`);
+});

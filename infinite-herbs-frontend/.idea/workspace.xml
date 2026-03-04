@@ -1,19 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2f0d159e-c53b-493b-8d2f-746324aca63e" name="Changes" comment="" />
+    <list default="true" id="2f0d159e-c53b-493b-8d2f-746324aca63e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/layout/navbar/navbar-wrapper.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/nav/sidebar-links.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(views)/(protected)/[locale]/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(views)/(protected)/[locale]/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(views)/(protected)/[locale]/users/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(views)/(protected)/[locale]/users/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(views)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(views)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/footer/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/footer/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/navbar/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/navbar/navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/sidebar/sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/sidebar/sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/nav/navlink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/nav/nav-link.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/protected/not-permission.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/protected/not-permission.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/toggles/language-toggle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/toggles/language-toggle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/i18n/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/i18n/messages/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/i18n/messages/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/i18n/messages/es.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="3AQ0WY96U9uOiyypduiOjrg4HmJ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -24,28 +39,36 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "Shell Script.Install.executor": "Run",
     "Shell Script.Run.executor": "Run",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "javascript.preferred.runtime.type.id": "node",
     "js.debugger.nextJs.config.created.client": "true",
     "js.debugger.nextJs.config.created.server": "true",
-    "last_opened_file_path": "E:/Trabajo/Personal/capacitaciones/nextjs/ejemplos/full-stack/frontend/admin-frontend/src/app/(views)/(protected)/[locale]",
+    "last_opened_file_path": "E:/Trabajo/Personal/capacitaciones/nextjs/documentacion/repositories/ti-agroa-TrainingC/infinite-herbs-frontend/dist/es",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "E:\\Trabajo\\Personal\\capacitaciones\\nextjs\\ejemplos\\full-stack\\frontend\\admin-frontend\\node_modules\\typescript\\lib",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "ts.external.directory.path": "E:\\Trabajo\\Personal\\capacitaciones\\nextjs\\documentacion\\repositories\\ti-agroa-TrainingC\\infinite-herbs-frontend\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Trabajo\Personal\capacitaciones\nextjs\documentacion\repositories\ti-agroa-TrainingC\infinite-herbs-frontend\dist\es" />
+      <recent name="E:\Trabajo\Personal\capacitaciones\nextjs\documentacion\repositories\ti-agroa-TrainingC\infinite-herbs-frontend\dist\en" />
       <recent name="E:\Trabajo\Personal\capacitaciones\nextjs\ejemplos\full-stack\frontend\admin-frontend\src\app\(views)\(protected)\[locale]" />
       <recent name="E:\Trabajo\Personal\capacitaciones\nextjs\ejemplos\full-stack\frontend\admin-frontend\src\app\(views)\(public)\[locale]" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Trabajo\Personal\capacitaciones\nextjs\ejemplos\full-stack\frontend\admin-frontend\src\i18n" />
+      <recent name="E:\Trabajo\Personal\capacitaciones\nextjs\documentacion\repositories\ti-agroa-TrainingC\infinite-herbs-frontend\src" />
+      <recent name="E:\Trabajo\Personal\capacitaciones\nextjs\documentacion\repositories\ti-agroa-TrainingC\infinite-herbs-frontend\src\app" />
+      <recent name="E:\Trabajo\Personal\capacitaciones\nextjs\documentacion\repositories\ti-agroa-TrainingC\infinite-herbs-frontend" />
+      <recent name="E:\Trabajo\Personal\capacitaciones\nextjs\documentacion\repositories\ti-agroa-TrainingC\infinite-herbs-frontend\src\app\[locale]" />
+      <recent name="E:\Trabajo\Personal\capacitaciones\nextjs\documentacion\repositories\ti-agroa-TrainingC\infinite-herbs-frontend\src\app\[locale]\(protected)" />
     </key>
   </component>
   <component name="RunManager" selected="Shell Script.Run">
@@ -99,6 +122,8 @@
       <option name="presentableId" value="Default" />
       <updated>1772509519795</updated>
       <workItem from="1772509521554" duration="8540000" />
+      <workItem from="1772575220602" duration="8166000" />
+      <workItem from="1772591861344" duration="9029000" />
     </task>
     <servers />
   </component>
